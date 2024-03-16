@@ -1,0 +1,9 @@
+[submodule "General_Grasp/cgn_pytorch"]
+	path = General_Grasp/cgn_pytorch
+	url = https://github.com/Zi-ang-Cao/cgn_pytorch
+[submodule "STF_EE_227_report"]
+	path = STF_EE_227_report
+	url = https://github.com/Zi-ang-Cao/STF_EE_227_report
+[submodule "STF_EE227_HW"]
+	path = STF_EE227_HW
+	url = https://github.com/Zi-ang-Cao/STF_EE227_HW

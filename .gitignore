@@ -1,0 +1,16 @@
+*.ply
+*.zip
+*.DS_Store
+*.npy
+*.npz
+
+
+**/environment.yaml
+
+__pycache__/
+
+# LaTeX related
+*.aux
+*.out
+*.log
+*.synctex.gz

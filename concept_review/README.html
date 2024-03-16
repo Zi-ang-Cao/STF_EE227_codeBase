@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="quiz-2----version-10">QUIZ 2 -- version 1.0</h1>
+<p><input type="checkbox" id="checkbox6"><label for="checkbox6">2D/3D coordinate transforms</label>
+<input type="checkbox" id="checkbox5"><label for="checkbox5">Image processing</label>
+<input type="checkbox" id="checkbox4"><label for="checkbox4">Visumotor policy learning</label>
+<input type="checkbox" id="checkbox3"><label for="checkbox3">Forward kinematics</label>
+<input type="checkbox" id="checkbox2"><label for="checkbox2">Training models</label>
+<input type="checkbox" id="checkbox1"><label for="checkbox1">Planning algorithms</label>
+<input type="checkbox" id="checkbox0"><label for="checkbox0">General content from guest lectures.</label></p>
+<ul>
+<li><a href="#quiz-2----version-10">QUIZ 2 -- version 1.0</a>
+<ul>
+<li><a href="#2d3d-coordinate-transforms">2D/3D coordinate transforms</a></li>
+<li><a href="#image-processing">Image processing</a>
+<ul>
+<li><a href="#convolution-neural-network-survival-kit">Convolution neural network survival kit</a></li>
+<li><a href="#shape-completion-with-3d-cnn">Shape Completion with 3D CNN</a></li>
+</ul>
+</li>
+<li><a href="#visumotor-policy-learning">Visumotor policy learning</a>
+<ul>
+<li><a href="#intro">Intro</a>
+<ul>
+<li><a href="#learning-for-vision-vs-learning-for-planning">Learning for vision v.s. Learning for planning</a></li>
+<li><a href="#challenges-in-robot-learning-and-overview-of-solutions">Challenges in robot learning and overview of solutions</a></li>
+</ul>
+</li>
+<li><a href="#imitation-learning-bc">Imitation learning (BC)</a></li>
+<li><a href="#self-supervised-learning">Self-supervised learning</a>
+<ul>
+<li><a href="#what-could-be-a-self-supervision-signal">What could be a Self-supervision signal?</a></li>
+<li><a href="#typical-thinking-structure">Typical Thinking Structure</a>
+<ul>
+<li><a href="#whats-the-self-supervision-signal">What's the self-supervision signal?</a></li>
+<li><a href="#how-was-the-data-collected">How was the data collected?</a></li>
+<li><a href="#how-the-learning-process-was-configured-input-output-loss">How the learning process was configured? (INPUT, OUTPUT, LOSS)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#affordance-based-pick-and-place">Affordance-Based pick and place</a>
+<ul>
+<li><a href="#spatial-equivariance">Spatial Equivariance!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#forward-kinematics">Forward kinematics</a></li>
+<li><a href="#training-models">Training models</a></li>
+<li><a href="#planning-algorithms">Planning algorithms</a>
+<ul>
+<li><a href="#foundamental">Foundamental</a></li>
+<li><a href="#sampling-based-planning">Sampling-based planning</a>
+<ul>
+<li><a href="#prm-probabilistic-roadmap">PRM (Probabilistic Roadmap)</a></li>
+<li><a href="#rrt-rapidly-exploring-random-tree">RRT (Rapidly-exploring Random Tree)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#general-content-from-guest-lectures">General content from guest lectures.</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="2d3d-coordinate-transforms">2D/3D coordinate transforms</h2>
+<h2 id="image-processing">Image processing</h2>
+<ul>
+<li>Lec 8</li>
+</ul>
+<blockquote>
+<p>U-NET</p>
+</blockquote>
+<ul>
+<li>Adjust Brightness
+<ul>
+<li>Add a constant value to each pixel.</li>
+<li>Multiply each pixel by a constant value.</li>
+<li><strong>GAMMA correction</strong>: Non-linear transformation.
+<ul>
+<li>gamma &lt; 1: reduce contrast + better visibility in dark areas.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Image Filtering
+<ul>
+<li><strong>Convolution Kernel</strong>: Apply a filter to the image.</li>
+<li>Padding</li>
+<li>Edge Detection
+<ul>
+<li>Sobel Operator (Vertical and Horizontal)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="convolution-neural-network-survival-kit">Convolution neural network survival kit</h3>
+<ul>
+<li>Basic Layers
+<ul>
+<li>Convolutional Layer (K (Kernel), N (Kernel Size), S (Stride), P (Padding))
+<ul>
+<li>INPUT: (C, H, W); OUTPUT: (C', H', W')
+<ul>
+<li>C' = K</li>
+<li>H' = (H - N + 2P) / S + 1</li>
+<li>W' = (W - N + 2P) / S + 1</li>
+</ul>
+</li>
+<li>Concepts:
+<ul>
+<li><strong>Stride</strong>: How much the filter kernel moves.</li>
+<li><strong>Padding</strong>: Add zeros to the border of the image.</li>
+<li><strong>Output Size</strong>: (W - F + 2P) / S + 1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Pooling Layer
+<ul>
+<li><strong>Max Pooling</strong>: Take the maximum value in the filter.</li>
+<li><strong>Average Pooling</strong>: Take the average value in the filter.</li>
+</ul>
+</li>
+<li>Fully Connected Layer
+<ul>
+<li>Only used at the end of the network. Map hidden features to the prediction.
+<ul>
+<li>E.g. Convert 2D IMG to 1D CLASS.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Loss Function
+<ul>
+<li>Regression
+<ul>
+<li>L1 Loss (MAE); L2 Loss (MSE)</li>
+</ul>
+</li>
+<li>Classification
+<ul>
+<li>Cross-Entropy Loss</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="shape-completion-with-3d-cnn">Shape Completion with 3D CNN</h3>
+<p>Input observed surface and output full 3D volume for occluded voxels.</p>
+<h2 id="visumotor-policy-learning">Visumotor policy learning</h2>
+<ul>
+<li>Lec14</li>
+</ul>
+<h3 id="intro">Intro</h3>
+<ul>
+<li>Learning-based planning and decision making</li>
+</ul>
+<h4 id="learning-for-vision-vs-learning-for-planning">Learning for vision v.s. Learning for planning</h4>
+<ul>
+<li><strong>Act</strong> --(Cycle time)-- <strong>Sense</strong> --(Perception)-- <strong>Think</strong> --(Planning)-- <strong>Act</strong></li>
+<li>Two main type of systems:
+<ul>
+<li>Modularized system: Separate modules for perception, planning, and control.</li>
+<li>End-to-end system: from raw sensor data to control commands.
+<ul>
+<li>Hopefully: less engineering, more generalization, and better performance (e.g. robust to sensor noise).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="challenges-in-robot-learning-and-overview-of-solutions">Challenges in robot learning and overview of solutions</h4>
+<ul>
+<li>Sequential POMDP for robot learning vs SINGLE MDP for vision calssification.
+<ul>
+<li>Safety Check?</li>
+<li>State Reset?</li>
+<li>Task Complexity: Needs a lot of data.</li>
+<li>Rewards:
+<ul>
+<li>No supervisor, only a reward signal.</li>
+<li>Reward is delay and sparse (ONLY REWARD FOR A SEQUENCE OF ACTIONS)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="imitation-learning-bc">Imitation learning (BC)</h3>
+<blockquote>
+<p>Human demonstration (obs + act) --&gt; Training data --&gt; Supervised learning --&gt; Policy</p>
+</blockquote>
+<ul>
+<li>[CHALLENGE] Model Drifting: The model will drift away from the expert's policy.
+<ul>
+<li>Triggered by the distribution mismatch between the training and test data (real sensor obs).</li>
+<li>[Solution] Data Agumentation: Add noise to both the input (OBS) and output (ACT) pair.
+<ul>
+<li>Instead of training on a single trajectory, train on a distribution of trajectories.</li>
+<li>E.g. [DAgger] Dataset Aggregation (Generate new OBS and require require human to label the new ACT).</li>
+</ul>
+</li>
+<li>[WHY] Why fails to fit the expert?
+<ul>
+<li>[DIFFICULTY] Non-Markovain Behavior; (Depends on the history of the state)
+<ul>
+<li>[Fix] Use 3D CNN</li>
+</ul>
+</li>
+<li>[DIFFICULTY] <strong>Multimodal Behavior</strong>; (Multiple actions are good candidates, <strong>direct regression will return the average of the actions which can be significantly bad</strong>.)
+<ul>
+<li>[Attempt-1] Discrete Action Space: Use classification instead of regression.
+<ul>
+<li>[ISSUE] Limited precision.</li>
+</ul>
+</li>
+<li>[Attempt-2] Mixture of Gaussians as output.
+<ul>
+<li>[ISSUE] Based on assumption that the expert's policy is a mixture of Gaussians.</li>
+</ul>
+</li>
+<li>[Attempt-3] Infer best action with Implicit function: Sample many actions and evaluate their scores before picking the best one (smallest drifting value).
+<ul>
+<li>From f(x) = 0 to f(x, y) = 0</li>
+<li>[ISSUE] Need a lot of samples.</li>
+<li>[SOLUTION] <strong>DIFFUSION POLICY</strong> -- Fits expert more accurately.
+<ul>
+<li>Reverse stochastic process: Start from the goal and go backward to the initial state.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="self-supervised-learning">Self-supervised learning</h3>
+<blockquote>
+<p>Mainly from Lec 15</p>
+</blockquote>
+<ul>
+<li>No need for reward / human labels. (no manully anotation)</li>
+</ul>
+<h4 id="what-could-be-a-self-supervision-signal">What could be a Self-supervision signal?</h4>
+<ul>
+<li>Predict the future.
+<ul>
+<li>Predict new OBS from the current (OBS, ACT) pair.</li>
+</ul>
+</li>
+</ul>
+<h4 id="typical-thinking-structure">Typical Thinking Structure</h4>
+<h5 id="whats-the-self-supervision-signal">What's the self-supervision signal?</h5>
+<h5 id="how-was-the-data-collected">How was the data collected?</h5>
+<h5 id="how-the-learning-process-was-configured-input-output-loss">How the learning process was configured? (INPUT, OUTPUT, LOSS)</h5>
+<h3 id="affordance-based-pick-and-place">Affordance-Based pick and place</h3>
+<blockquote>
+<p>Links visual perception of the environment to the robot's possible action.</p>
+</blockquote>
+<h4 id="spatial-equivariance">Spatial Equivariance!</h4>
+<h2 id="forward-kinematics">Forward kinematics</h2>
+<h2 id="training-models">Training models</h2>
+<h2 id="planning-algorithms">Planning algorithms</h2>
+<h3 id="foundamental">Foundamental</h3>
+<ul>
+<li>configuration</li>
+<li>degree of freedom</li>
+<li>configuration space (C-space)
+<ul>
+<li>Wrapped angle (0 ~ 2pi) for C-space obstacle.</li>
+</ul>
+</li>
+</ul>
+<h3 id="sampling-based-planning">Sampling-based planning</h3>
+<blockquote>
+<p>Define distance in configuration space!<br>
+Check Collision<br>
+Define distance with wrapped angle!</p>
+</blockquote>
+<h4 id="prm-probabilistic-roadmap">PRM (Probabilistic Roadmap)</h4>
+<blockquote>
+<p>PRM is not complete, but it is probabilistically complete.</p>
+</blockquote>
+<ul>
+<li>Two Phases
+<ul>
+<li>Preprocessing Phase
+<ul>
+<li>Sample N times</li>
+<li>Connect the nodes to all valid neighbors.</li>
+</ul>
+</li>
+<li>Query Phase
+<ul>
+<li>In roadmap, find sequence of nodes (milestones) that connects the start and goal.</li>
+<li>Static roadmap: Not good for dynamic environment.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="rrt-rapidly-exploring-random-tree">RRT (Rapidly-exploring Random Tree)</h4>
+<blockquote>
+<p>Assume delta is smaller enough to be considered as collision-free.<br>
+Work well in high-dimensional space.</p>
+</blockquote>
+<ul>
+<li>
+<p>Sample -- Steering -- Safety Check -- Add to Tree</p>
+</li>
+<li>
+<p>[ADVANCE] Bi-directional RRT</p>
+<ul>
+<li>Start from both start and goal.</li>
+<li>Connect the two trees when they are close enough.</li>
+</ul>
+</li>
+</ul>
+<h2 id="general-content-from-guest-lectures">General content from guest lectures.</h2>
+
+</body>
+</html>
